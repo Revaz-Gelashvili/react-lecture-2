@@ -4,20 +4,28 @@ import Sun from "../../assets/sun.svg";
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between px-4 py-2 w-full">
+    <div className="header flex items-center justify-between mx-4 my-4 px-5 py-5 w-full">
       <div className="flex items-center gap-2">
         <h3 className="text-xl font-bold">RateNest</h3>
         <img src={Logo} alt="Logo" className="w-8 h-8" />
       </div>
       <div className="flex items-center gap-4">
         <ul className="flex gap-4">
-          <li>Exchange</li>
-          <li>Rates</li>
-          <li>Charts</li>
-          <li>News</li>
+          <a href="#">
+            <li>Exchange</li>
+          </a>
+          <a href="#">
+            <li>Rates</li>
+          </a>
+          <a href="#">
+            <li>Charts</li>
+          </a>
+          <a href="#">
+            <li>News</li>
+          </a>
         </ul>
         <img src={Sun} alt="Sun" className="w-6 h-6 cursor-pointer" />
       </div>
-    </header>
+    </div>
   );
 }
