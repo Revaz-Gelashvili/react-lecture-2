@@ -3,9 +3,8 @@ import Logo from "../../assets/coin-logo.svg";
 import Sun from "../../assets/sun.svg";
 import Profile from "../../assets/profile-pic.svg";
 import Menu from "../../assets/menu.svg";
-import MenuToggle from "./Menu";
 
-export default function Header() {
+export default function Header({ toggleSideBar }) {
   return (
     <div className="header flex items-center justify-between w-full">
       <div className="flex items-center gap-6">
@@ -37,12 +36,16 @@ export default function Header() {
         <div className="block sm:hidden">
           <img
             src={Menu}
-            onClick={MenuToggle}
+            onClick={toggleSideBar}
             alt="menu"
             className="w-10 h-10 cursor-pointer"
           />
         </div>
-        <img src={Sun} alt="Sun" className="w-10 h-10 cursor-pointer" />
+        <img
+          src={Sun}
+          alt="Sun"
+          className="hidden sm:block w-10 h-10 cursor-pointer"
+        />
         <img src={Profile} alt="Sun" className="w-10 h-10 cursor-pointer" />
       </div>
     </div>
