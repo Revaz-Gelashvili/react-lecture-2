@@ -1,7 +1,15 @@
 .main-div {
   .content-div {
     h1 {
-      font-size: 4rem;
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
+    p {
+      margin-bottom: 3rem;
+    }
+  }
+  .select-currency {
+    display: flex;
+    flex-direction: column;
   }
 }
