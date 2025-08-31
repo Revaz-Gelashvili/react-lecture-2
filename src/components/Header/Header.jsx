@@ -1,5 +1,4 @@
 import "./Header.scss";
-import "../Button/Theme.scss";
 import Logo from "../../assets/coin-logo.svg";
 import Sun from "../../assets/sun.svg";
 import Profile from "../../assets/profile-pic.svg";
