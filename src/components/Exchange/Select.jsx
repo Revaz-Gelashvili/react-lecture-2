@@ -1,45 +1,230 @@
 import React from "react";
-import { Select } from "antd";
+import { Select, InputNumber } from "antd";
+import "./Exchange.scss";
 
-export default function SelectCurrency() {
+const currencies = [
+  { value: "AED", label: "AED - United Arab Emirates dirham" },
+  { value: "AFN", label: "AFN - Afghan afghani" },
+  { value: "ALL", label: "ALL - Albanian lek" },
+  { value: "AMD", label: "AMD - Armenian dram" },
+  { value: "AOA", label: "AOA - Angolan kwanza" },
+  { value: "ARS", label: "ARS - Argentine peso" },
+  { value: "AUD", label: "AUD - Australian dollar" },
+  { value: "AWG", label: "AWG - Aruban florin" },
+  { value: "AZN", label: "AZN - Azerbaijani manat" },
+  { value: "BAM", label: "BAM - Bosnia and Herzegovina convertible mark" },
+  { value: "BBD", label: "BBD - Barbadian dollar" },
+  { value: "BDT", label: "BDT - Bangladeshi taka" },
+  { value: "BGN", label: "BGN - Bulgarian lev" },
+  { value: "BHD", label: "BHD - Bahraini dinar" },
+  { value: "BIF", label: "BIF - Burundian franc" },
+  { value: "BMD", label: "BMD - Bermudian dollar" },
+  { value: "BND", label: "BND - Brunei dollar" },
+  { value: "BOB", label: "BOB - Bolivian boliviano" },
+  { value: "BOV", label: "BOV - Bolivian Mvdol (funds code)" },
+  { value: "BRL", label: "BRL - Brazilian real" },
+  { value: "BSD", label: "BSD - Bahamian dollar" },
+  { value: "BTN", label: "BTN - Bhutanese ngultrum" },
+  { value: "BWP", label: "BWP - Botswanan pula" },
+  { value: "BYN", label: "BYN - Belarusian ruble" },
+  { value: "BZD", label: "BZD - Belize dollar" },
+  { value: "CAD", label: "CAD - Canadian dollar" },
+  { value: "CDF", label: "CDF - Congolese franc" },
+  { value: "CHE", label: "CHE - WIR Euro" },
+  { value: "CHF", label: "CHF - Swiss franc" },
+  { value: "CHW", label: "CHW - WIR Franc" },
+  { value: "CLP", label: "CLP - Chilean peso" },
+  { value: "CNH", label: "CNH - Chinese yuan (offshore)" },
+  { value: "CNY", label: "CNY - Chinese yuan" },
+  { value: "COP", label: "COP - Colombian peso" },
+  { value: "COU", label: "COU - Colombian real value unit" },
+  { value: "CRC", label: "CRC - Costa Rican colón" },
+  { value: "CUC", label: "CUC - Cuban convertible peso" },
+  { value: "CUP", label: "CUP - Cuban peso" },
+  { value: "CVE", label: "CVE - Cape Verde escudo" },
+  { value: "CWG", label: "CWG - Curaçao guilder" },
+  { value: "CYP", label: "CYP - Cypriot pound" },
+  { value: "CZK", label: "CZK - Czech koruna" },
+  { value: "DJF", label: "DJF - Djiboutian franc" },
+  { value: "DKK", label: "DKK - Danish krone" },
+  { value: "DOP", label: "DOP - Dominican peso" },
+  { value: "DZD", label: "DZD - Algerian dinar" },
+  { value: "EGP", label: "EGP - Egyptian pound" },
+  { value: "ERN", label: "ERN - Eritrean nakfa" },
+  { value: "ESA", label: "ESA - Spanish peseta (A account)" },
+  { value: "ESB", label: "ESB - Spanish peseta (B account)" },
+  { value: "ESP", label: "ESP - Spanish peseta" },
+  { value: "ETB", label: "ETB - Ethiopian birr" },
+  { value: "EUR", label: "EUR - Euro" },
+  { value: "FJD", label: "FJD - Fijian dollar" },
+  { value: "FKP", label: "FKP - Falkland Islands pound" },
+  { value: "GBP", label: "GBP - British pound sterling" },
+  { value: "GEL", label: "GEL - Georgian lari" },
+  { value: "GHS", label: "GHS - Ghanaian cedi" },
+  { value: "GIP", label: "GIP - Gibraltar pound" },
+  { value: "GMD", label: "GMD - Gambian dalasi" },
+  { value: "GNF", label: "GNF - Guinean franc" },
+  { value: "GQF", label: "GQF - Equatorial Guinean franc" },
+  { value: "GRD", label: "GRD - Greek drachma" },
+  { value: "GTQ", label: "GTQ - Guatemalan quetzal" },
+  { value: "GUF", label: "GUF - Guiana franc" },
+  { value: "GWP", label: "GWP - Guinea-Bissau peso" },
+  { value: "GYD", label: "GYD - Guyanese dollar" },
+  { value: "HKD", label: "HKD - Hong Kong dollar" },
+  { value: "HNL", label: "HNL - Honduran lempira" },
+  { value: "HRK", label: "HRK - Croatian kuna" },
+  { value: "HTG", label: "HTG - Haitian gourde" },
+  { value: "HUF", label: "HUF - Hungarian forint" },
+  { value: "IDR", label: "IDR - Indonesian rupiah" },
+  { value: "ILS", label: "ILS - Israeli new shekel" },
+  { value: "INR", label: "INR - Indian rupee" },
+  { value: "IQD", label: "IQD - Iraqi dinar" },
+  { value: "IRR", label: "IRR - Iranian rial" },
+  { value: "ISK", label: "ISK - Icelandic króna" },
+  { value: "JMD", label: "JMD - Jamaican dollar" },
+  { value: "JOD", label: "JOD - Jordanian dinar" },
+  { value: "JPY", label: "JPY - Japanese yen" },
+  { value: "KES", label: "KES - Kenyan shilling" },
+  { value: "KGS", label: "KGS - Kyrgyzstani som" },
+  { value: "KHR", label: "KHR - Cambodian riel" },
+  { value: "KMF", label: "KMF - Comorian franc" },
+  { value: "KPW", label: "KPW - North Korean won" },
+  { value: "KRW", label: "KRW - South Korean won" },
+  { value: "KWD", label: "KWD - Kuwaiti dinar" },
+  { value: "KYD", label: "KYD - Cayman Islands dollar" },
+  { value: "KZT", label: "KZT - Kazakhstani tenge" },
+  { value: "LAK", label: "LAK - Laotian kip" },
+  { value: "LBP", label: "LBP - Lebanese pound" },
+  { value: "LKR", label: "LKR - Sri Lankan rupee" },
+  { value: "LRD", label: "LRD - Liberian dollar" },
+  { value: "LSL", label: "LSL - Lesotho loti" },
+  { value: "LTL", label: "LTL - Lithuanian litas" },
+  { value: "LVL", label: "LVL - Latvian lats" },
+  { value: "LYD", label: "LYD - Libyan dinar" },
+  { value: "MAD", label: "MAD - Moroccan dirham" },
+  { value: "MDL", label: "MDL - Moldovan leu" },
+  { value: "MGA", label: "MGA - Malagasy ariary" },
+  { value: "MKD", label: "MKD - Macedonian denar" },
+  { value: "MMK", label: "MMK - Myanmar kyat" },
+  { value: "MNT", label: "MNT - Mongolian tugrik" },
+  { value: "MOP", label: "MOP - Macanese pataca" },
+  { value: "MRU", label: "MRU - Mauritanian ouguiya" },
+  { value: "MUR", label: "MUR - Mauritian rupee" },
+  { value: "MVR", label: "MVR - Maldivian rufiyaa" },
+  { value: "MWK", label: "MWK - Malawian kwacha" },
+  { value: "MXN", label: "MXN - Mexican peso" },
+  { value: "MYR", label: "MYR - Malaysian ringgit" },
+  { value: "MZN", label: "MZN - Mozambican metical" },
+  { value: "NAD", label: "NAD - Namibian dollar" },
+  { value: "NGN", label: "NGN - Nigerian naira" },
+  { value: "NGN", label: "NGN - Nigerian naira" },
+  { value: "NIO", label: "NIO - Nicaraguan córdoba" },
+  { value: "NOK", label: "NOK - Norwegian krone" },
+  { value: "NPR", label: "NPR - Nepalese rupee" },
+  { value: "NZD", label: "NZD - New Zealand dollar" },
+  { value: "OMR", label: "OMR - Omani rial" },
+  { value: "PAB", label: "PAB - Panamanian balboa" },
+  { value: "PEN", label: "PEN - Peruvian nuevo sol" },
+  { value: "PGK", label: "PGK - Papua New Guinean kina" },
+  { value: "PHP", label: "PHP - Philippine peso" },
+  { value: "PKR", label: "PKR - Pakistani rupee" },
+  { value: "PLN", label: "PLN - Polish złoty" },
+  { value: "PYG", label: "PYG - Paraguayan guaraní" },
+  { value: "QAR", label: "QAR - Qatari riyal" },
+  { value: "RON", label: "RON - Romanian leu" },
+  { value: "RSD", label: "RSD - Serbian dinar" },
+  { value: "RUB", label: "RUB - Russian ruble" },
+  { value: "RWF", label: "RWF - Rwandan franc" },
+  { value: "SAR", label: "SAR - Saudi riyal" },
+  { value: "SBD", label: "SBD - Solomon Islands dollar" },
+  { value: "SCR", label: "SCR - Seychellois rupee" },
+  { value: "SDG", label: "SDG - Sudanese pound" },
+  { value: "SEK", label: "SEK - Swedish krona" },
+  { value: "SGD", label: "SGD - Singapore dollar" },
+  { value: "SHP", label: "SHP - Saint Helena pound" },
+  { value: "SLL", label: "SLL - Sierra Leonean leone" },
+  { value: "SOS", label: "SOS - Somali shilling" },
+  { value: "SRD", label: "SRD - Surinamese dollar" },
+  { value: "SSP", label: "SSP - South Sudanese pound" },
+  { value: "STN", label: "STN - São Tomé and Príncipe dobra" },
+  { value: "SYP", label: "SYP - Syrian pound" },
+  { value: "SZL", label: "SZL - Swazi lilangeni" },
+  { value: "THB", label: "THB - Thai baht" },
+  { value: "TJS", label: "TJS - Tajikistani somoni" },
+  { value: "TMT", label: "TMT - Turkmenistani manat" },
+  { value: "TND", label: "TND - Tunisian dinar" },
+  { value: "TOP", label: "TOP - Tongan paʻanga" },
+  { value: "TRY", label: "TRY - Turkish lira" },
+  { value: "TTD", label: "TTD - Trinidad and Tobago dollar" },
+  { value: "TWD", label: "TWD - New Taiwan dollar" },
+  { value: "TZS", label: "TZS - Tanzanian shilling" },
+  { value: "UAH", label: "UAH - Ukrainian hryvnia" },
+  { value: "UGX", label: "UGX - Ugandan shilling" },
+  { value: "USD", label: "USD - United States dollar" },
+  { value: "UYU", label: "UYU - Uruguayan peso" },
+  { value: "UZS", label: "UZS - Uzbekistani som" },
+  { value: "VES", label: "VES - Venezuelan bolívar" },
+  { value: "VND", label: "VND - Vietnamese đồng" },
+  { value: "VUV", label: "VUV - Vanuatu vatu" },
+  { value: "WST", label: "WST - Samoan tala" },
+  { value: "XAF", label: "XAF - Central African CFA franc" },
+  { value: "XAG", label: "XAG - Silver ounce" },
+  { value: "XAU", label: "XAU - Gold ounce" },
+  { value: "XBA", label: "XBA - European Composite Unit" },
+  { value: "XBB", label: "XBB - European Monetary Unit" },
+  { value: "XBC", label: "XBC - European Unit of Account 17" },
+  { value: "XBD", label: "XBD - European Unit of Account 9" },
+  { value: "XCD", label: "XCD - East Caribbean dollar" },
+  {
+    value: "XDR",
+    label: "XDR - International Monetary Fund (IMF) Special Drawing Rights",
+  },
+  { value: "XOF", label: "XOF - West African CFA franc" },
+  { value: "XPD", label: "XPD - Palladium ounce" },
+  { value: "XPF", label: "XPF - CFP franc" },
+  { value: "XPT", label: "XPT - Platinum ounce" },
+  { value: "XSU", label: "XSU - Sucre" },
+  { value: "XTS", label: "XTS - Testing purposes" },
+  { value: "XUA", label: "XUA - African Development Bank Unit of Account" },
+  { value: "YER", label: "YER - Yemeni rial" },
+  { value: "ZAR", label: "ZAR - South African rand" },
+  { value: "ZMW", label: "ZMW - Zambian kwacha" },
+  { value: "ZWL", label: "ZWL - Zimbabwean dollar" },
+];
+
+export default function SelectCurrency({
+  id,
+  onCurrencyChange,
+  onAmountChange,
+  value,
+  amount,
+}) {
   return (
-    <Select
-      showSearch
-      style={{ height: 60 }}
-      className="w-full"
-      placeholder="Select Base Curncy"
-      optionFilterProp="label"
-      filterSort={(optionA, optionB) =>
-        (optionA?.label ?? "")
-          .toLowerCase()
-          .localeCompare((optionB?.label ?? "").toLowerCase())
-      }
-      options={[
-        {
-          value: "1",
-          label: "Not Identified",
-        },
-        {
-          value: "2",
-          label: "Closed",
-        },
-        {
-          value: "3",
-          label: "Communicated",
-        },
-        {
-          value: "4",
-          label: "Identified",
-        },
-        {
-          value: "5",
-          label: "Resolved",
-        },
-        {
-          value: "6",
-          label: "Cancelled",
-        },
-      ]}
-    />
+    <div className="main w-full flex gap-5">
+      <Select
+        id={id}
+        className="w-2/3"
+        showSearch
+        style={{ height: 60 }}
+        placeholder="Please select your currency"
+        optionFilterProp="label"
+        filterSort={(a, b) =>
+          (a.label ?? "")
+            .toLowerCase()
+            .localeCompare((b.label ?? "").toLowerCase())
+        }
+        options={currencies}
+        onChange={onCurrencyChange}
+        value={value}
+      />
+      <InputNumber
+        id={`${id}-amount`}
+        className="inputNumber"
+        style={{ height: 60 }}
+        min={1}
+        onChange={onAmountChange}
+        value={amount}
+      />
+    </div>
   );
 }

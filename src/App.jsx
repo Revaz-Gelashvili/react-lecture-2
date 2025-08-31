@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./styles/_App.scss";
 import Header from "./components/Header/Header";
-import Exchange from "./components/exchange/Exchange";
+import Exchange from "./components/Exchange/Exchange";
 import Menu from "./components/Header/Menu";
 import "./styles/tailwind.css";
 

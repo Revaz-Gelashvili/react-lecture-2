@@ -1,8 +1,10 @@
 @use "./reset.scss";
 @use "./App.scss";
 @use "./variables";
+@use "./Theme";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 body {
   font-family: "Noto Sans", sans-serif;
+  transition: background-color 0.3s, color 0.3s;
 }
