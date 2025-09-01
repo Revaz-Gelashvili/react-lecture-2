@@ -3,6 +3,7 @@ import "./styles/_App.scss";
 import Header from "./components/Header/Header";
 import Exchange from "./components/Exchange/Exchange";
 import Menu from "./components/Header/Menu";
+import Footer from "./components/Footer/Footer";
 import "./styles/tailwind.css";
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
         <Menu isOpen={isOpen} toggleSideBar={toggleSideBar} />
       </div>
       <Exchange />
+      <Footer />
     </>
   );
 }
