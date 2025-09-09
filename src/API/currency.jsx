@@ -10,5 +10,5 @@ export default function Converter() {
       .catch((err) => console.error(err));
   }, []);
 
-  return <div>{rate ? <p>1 USD = {rate} GBP</p> : <p>Загрузка...</p>}</div>;
+  return <div>{rate ? <p>1 USD = {rate} GBP</p> : <p>Loading...</p>}</div>;
 }
