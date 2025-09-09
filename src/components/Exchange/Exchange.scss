@@ -1,7 +1,7 @@
 .main-div {
   padding-top: 4rem;
   padding-bottom: 4rem;
-  margin-bottom: 3rem;
+  margin-bottom: 7rem;
   background-image: url(../../assets/img/map.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -21,6 +21,12 @@
   }
   .exchange {
     margin-bottom: 3rem;
+
+    .select {
+      -webkit-box-shadow: 3px 9px 34px -1px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: 3px 9px 34px -1px rgba(0, 0, 0, 0.2);
+      box-shadow: 3px 9px 34px -1px rgba(0, 0, 0, 0.2);
+    }
   }
 
   .button {

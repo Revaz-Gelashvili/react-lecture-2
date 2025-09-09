@@ -10,7 +10,7 @@ import Switch2 from "../../assets/switch-after.svg";
 
 export default function About() {
   return (
-    <div className="about flex relative justify-center  h-[600px]">
+    <div className="about flex relative justify-center  h-[80vh]">
       <div className="left-box w-screen hidden xl:block">
         <img
           className="absolute top-20 left-30 w-100 h-100"

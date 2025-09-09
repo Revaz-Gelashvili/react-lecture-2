@@ -203,7 +203,7 @@ export default function SelectCurrency({
     <div className="main w-full flex gap-5">
       <Select
         id={id}
-        className="w-2/3"
+        className="w-2/3 select"
         showSearch
         style={{ height: 60 }}
         placeholder="Please select your currency"
@@ -219,7 +219,7 @@ export default function SelectCurrency({
       />
       <InputNumber
         id={`${id}-amount`}
-        className="inputNumber"
+        className="inputNumber select"
         style={{ height: 60 }}
         min={1}
         onChange={onAmountChange}
