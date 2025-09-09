@@ -1,6 +1,7 @@
 import "./Exchange.scss";
 import SelectCurrency from "../Exchange/Select";
 import { useState, useEffect } from "react";
+import { Button } from "antd";
 
 export default function Exchange() {
   const [fromCurrency, setFromCurrency] = useState("USD");
@@ -34,8 +35,11 @@ export default function Exchange() {
   }, [toAmount, toCurrency, fromCurrency, isUpdatingFrom]);
 
   return (
-    <div className="main-div flex justify-center">
-      <div className="flex flex-col items-center gap-5 w-sm md:w-150 lg:w-200 xl:w-300">
+    <div className="main-div bg-white w-full flex justify-center flex-col items-center">
+      <div className="title-box rounded-4xl">
+        <p>Convert at the best rate</p>
+      </div>
+      <div className="exchange flex flex-col items-center gap-5 w-sm md:w-150 lg:w-200 xl:w-300">
         <SelectCurrency
           id="fromCurrency"
           value={fromCurrency}
@@ -58,6 +62,10 @@ export default function Exchange() {
           }}
         />
       </div>
+
+      <Button className="button w-70" type="primary">
+        Convert
+      </Button>
     </div>
   );
 }

@@ -1,11 +1,15 @@
-.header {
+.header-box {
   height: 4rem;
-  padding: 0rem 2rem 0rem 2rem;
-  margin-bottom: 2rem;
+  margin: 1rem 2rem 0rem 2rem;
+  width: -webkit-fill-available;
+  padding: 0rem 3rem 0rem 3rem;
+  -webkit-box-shadow: 3px 9px 34px -1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 3px 9px 34px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 9px 34px -1px rgba(0, 0, 0, 0.1);
 
   .webName {
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 

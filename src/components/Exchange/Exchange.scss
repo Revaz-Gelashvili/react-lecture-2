@@ -1,16 +1,32 @@
 .main-div {
-  .content-div {
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  margin-bottom: 3rem;
+  background-image: url(../../assets/img/map.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  .title-box {
+    -webkit-box-shadow: 3px 9px 34px -1px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 3px 9px 34px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 9px 34px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+    background-color: rgb(244, 245, 255);
     p {
-      margin-bottom: 3rem;
+      padding: 1rem;
+      font-size: 2.5rem;
+      font-weight: bold;
     }
   }
-  .select-currency {
-    display: flex;
-    flex-direction: column;
+  .exchange {
+    margin-bottom: 3rem;
+  }
+
+  .button {
+    height: 3rem;
+    font-size: 1.2rem;
+    font-weight: 400;
   }
 }
 
@@ -18,5 +34,15 @@
   .inputNumber {
     padding: 0.8rem;
     width: 50%;
+  }
+}
+
+@media (max-width: 535px) {
+  .main-div {
+    .title-box {
+      p {
+        font-size: 2rem;
+      }
+    }
   }
 }

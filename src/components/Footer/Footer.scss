@@ -1,0 +1,25 @@
+.footer {
+  width: -webkit-fill-available;
+  margin: 2rem;
+  padding: 1rem 3rem;
+  background-color: rgb(244, 245, 255);
+  -webkit-box-shadow: 3px 9px 34px -1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 3px 9px 34px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 9px 34px -1px rgba(0, 0, 0, 0.2);
+
+  .content {
+    h3 {
+      font-size: 1.2rem;
+    }
+  }
+
+  .about {
+    p {
+      font-size: 0.8rem;
+      a {
+        text-decoration: underline;
+        color: $primary-color;
+      }
+    }
+  }
+}
