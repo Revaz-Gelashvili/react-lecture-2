@@ -1,4 +1,5 @@
 import "./About.scss";
+import React, { useEffect } from "react";
 import Expirience from "../../assets/img/about1-img1.png";
 import BTC from "../../assets/img/about1-img2.png";
 import Someone from "../../assets/img/about1-img3.png";
@@ -7,11 +8,20 @@ import Support1 from "../../assets/support-before.svg";
 import Support2 from "../../assets/support-after.svg";
 import Switch1 from "../../assets/switch-before.svg";
 import Switch2 from "../../assets/switch-after.svg";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function About() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
   return (
-    <div className="about flex relative justify-center  h-[80vh]">
-      <div className="left-box w-screen hidden xl:block">
+    <div className="about flex relative justify-center  h-[75vh]">
+      <div className="left-box w-screen hidden xl:block" data-aos="fade-down">
         <img
           className="absolute top-20 left-30 w-100 h-100"
           src={Shape}
@@ -27,7 +37,10 @@ export default function About() {
           alt="Shape"
         />
       </div>
-      <div className="right-box w-screen text-center xl:text-left flex items-center flex-col  xl:items-start ">
+      <div
+        className="right-box w-screen text-center xl:text-left flex items-center flex-col  xl:items-start "
+        data-aos="fade-right"
+      >
         <div className="first-line rounded-lg">
           <p>WHY ChOOSE PAYCOIN</p>
         </div>

@@ -1,19 +1,28 @@
 import "./Hero.scss";
-import React from "react";
-import { Button, Input, Flex } from "antd";
+import React, { useEffect } from "react";
+import { Button, Input } from "antd";
 import PayPal from "../../assets/bank1.svg";
 import Visa from "../../assets/bank2.svg";
 import MasterCard from "../../assets/bank3.svg";
 import HeroMobile from "../../assets/img/hero1-mobile1.png";
 import Coins from "../../assets/img/hero1-coin.png";
-import AppleBtn from "../../assets/img/apple-btn.png";
 import HeroMan from "../../assets/img/hero1-main.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Hero() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
+
   return (
     <div className="hero h-[50rem]">
       <div className="content flex items-center justify-center">
-        <div className="left-box">
+        <div className="left-box" data-aos="fade-right">
           <div className="first-line rounded-lg">
             <p>Invest in the Future of RateNest</p>
           </div>
@@ -22,11 +31,11 @@ export default function Hero() {
           </p>
           <div className="third-line">
             <p>At PayCoin, we're committed to providing you with at</p>
-            <p>a cutting-edge exchange experience a that goes beyond.</p>
+            <p>a cutting-edge exchange experience that goes beyond.</p>
           </div>
           <div className="email flex relative items-center w-sm md:w-lg">
-            <Input className="h-15  w-full" placeholder="Email Adress" />
-            <Button className="button absolute right-27" type="primary">
+            <Input className="h-15 w-full" placeholder="Email Adress" />
+            <Button className="button absolute -translate-x-28" type="primary">
               Get Started
             </Button>
           </div>
@@ -34,7 +43,7 @@ export default function Hero() {
             <p>Buy currency with:</p>
             <div className="flex item">
               <a href="#">
-                <img className="w-20 h-10" src={PayPal} alt="Paypadl" />
+                <img className="w-20 h-10" src={PayPal} alt="PayPal" />
               </a>
               <a href="#">
                 <img className="w-20 h-10" src={Visa} alt="Visa" />
@@ -45,7 +54,10 @@ export default function Hero() {
             </div>
           </div>
         </div>
-        <div className="right-box hidden lg:block relative h-[413px] w-screen">
+        <div
+          className="right-box  hidden lg:block relative h-[413px] w-screen"
+          data-aos="fade-left"
+        >
           <img
             className="absolute w-70 h-120 left-100 z-5 hidden xl:block"
             src={HeroMan}
@@ -54,12 +66,12 @@ export default function Hero() {
           <img
             className="absolute w-60 h-55 left-55 top-55 hidden xl:block"
             src={Coins}
-            alt="Man"
+            alt="Coins"
           />
           <img
-            className="absolute mobile hidden lg:block xl:w-70 xl:h-70 xl:left-20 top-20 xl:top-0 "
+            className="absolute mobile hidden lg:block xl:w-70 xl:h-70 xl:left-20 top-20 xl:top-0"
             src={HeroMobile}
-            alt="Man"
+            alt="Hero Mobile"
           />
         </div>
       </div>

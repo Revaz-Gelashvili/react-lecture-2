@@ -6,7 +6,9 @@ import Hero from "./components/Hero/Hero";
 import Exchange from "./components/Exchange/Exchange";
 import Menu from "./components/Header/Menu";
 import About from "./components/About/About";
+import Comments from "./components/Comments/Comments";
 import Footer from "./components/Footer/Footer";
+
 import "./styles/tailwind.css";
 
 export default function App() {
@@ -28,6 +30,7 @@ export default function App() {
         <Exchange />
         <div className="w-sm md:w-150 lg:w-200 xl:w-300">
           <About />
+          <Comments />
         </div>
         <Footer />
       </div>

@@ -1,7 +1,10 @@
 import "./Exchange.scss";
+import React from "react";
 import SelectCurrency from "../Exchange/Select";
 import { useState, useEffect } from "react";
 import { Button } from "antd";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Exchange() {
   const [fromCurrency, setFromCurrency] = useState("USD");
@@ -17,6 +20,14 @@ export default function Exchange() {
     const data = await res.json();
     return amount * data.data.mid;
   };
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
 
   useEffect(() => {
     if (isUpdatingFrom) {
@@ -36,10 +47,13 @@ export default function Exchange() {
 
   return (
     <div className="main-div bg-white w-full flex justify-center flex-col items-center">
-      <div className="title-box rounded-4xl">
+      <div className="title-box rounded-4xl" data-aos="fade-up">
         <p>Convert at the best rate</p>
       </div>
-      <div className="exchange flex flex-col items-center gap-5 w-sm md:w-150 lg:w-200 xl:w-300">
+      <div
+        className="exchange flex flex-col items-center gap-5 w-sm md:w-150 lg:w-200 xl:w-300"
+        data-aos="zoom-out-up"
+      >
         <SelectCurrency
           id="fromCurrency"
           value={fromCurrency}
@@ -63,7 +77,7 @@ export default function Exchange() {
         />
       </div>
 
-      <Button className="button w-70" type="primary">
+      <Button className="button w-70" type="primary" data-aos="fade-up">
         Convert
       </Button>
     </div>
