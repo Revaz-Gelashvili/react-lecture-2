@@ -8,7 +8,7 @@ import "aos/dist/aos.css";
 
 export default function Exchange() {
   const [fromCurrency, setFromCurrency] = useState("USD");
-  const [toCurrency, setToCurrency] = useState("EUR");
+  const [toCurrency, setToCurrency] = useState("GEL");
   const [fromAmount, setFromAmount] = useState(1);
   const [toAmount, setToAmount] = useState(0);
   const [isUpdatingFrom, setIsUpdatingFrom] = useState(true);

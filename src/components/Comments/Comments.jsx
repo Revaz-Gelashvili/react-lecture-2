@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { testimonials } from "./date";
 import "./Comments.scss";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Comments() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,9 +17,20 @@ export default function Comments() {
     );
   };
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
+
   return (
     <div className="comments-container rounded-xl flex h-170 bg-white">
-      <div className="w-1/2 sides left-side flex flex-col justify-center p-8 relative">
+      <div
+        className="w-1/2 sides left-side flex flex-col justify-center p-8 relative"
+        data-aos="fade-left"
+      >
         <div className="testimonials-header mb-8 text-center flex flex-col items-center">
           <h2 className="feedback">Feedback Our Investor</h2>
           <div className="testimonials-badge rounded-xl">
@@ -77,7 +90,10 @@ export default function Comments() {
         </div>
       </div>
 
-      <div className="w-1/2 sides relative overflow-hidden">
+      <div
+        className="w-1/2 sides relative overflow-hidden"
+        data-aos="fade-right"
+      >
         <div className="world-map rounded-xl absolute inset-0 bg-cover bg-center"></div>
         <div className="map-overlay absolute inset-0 bg-gradient-to-b from-transparent to-white/50"></div>
         {testimonials.map((testimonial, index) => (
