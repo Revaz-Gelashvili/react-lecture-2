@@ -47,7 +47,7 @@ export default function Exchange() {
 
   return (
     <div className="main-div bg-white w-full flex justify-center flex-col items-center">
-      <div className="title-box rounded-4xl" data-aos="fade-up">
+      <div className="title-box rounded-4xl text-center" data-aos="fade-up">
         <p>Convert at the best rate</p>
       </div>
       <div

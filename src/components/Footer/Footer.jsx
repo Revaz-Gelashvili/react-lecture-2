@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import GitHub from "../../assets/github.svg";
 import Telegram from "../../assets/telegram.svg";
 import "./Footer.scss";
@@ -6,18 +6,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function Footer() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1200,
-      easing: "ease-in-out",
-      once: true,
-    });
-  }, []);
   return (
-    <div
-      className="footer rounded-4xl h-16 flex items-center text-center justify-center bottom-0 left-0"
-      data-aos="fade-up"
-    >
+    <div className="footer rounded-4xl h-16 flex items-center text-center justify-center bottom-0 left-0">
       <div className="flex items-center text-center justify-between w-sm md:w-150 lg:w-200 xl:w-300">
         <div className="content ">
           <h3>RateNest</h3>

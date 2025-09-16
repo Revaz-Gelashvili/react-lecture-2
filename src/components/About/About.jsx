@@ -20,7 +20,7 @@ export default function About() {
     });
   }, []);
   return (
-    <div className="about flex relative justify-center  h-[75vh]">
+    <div className="about flex relative justify-center  h-[65vh] lg:h-[75vh]">
       <div className="left-box w-screen hidden xl:block" data-aos="fade-down">
         <img
           className="absolute top-20 left-30 w-100 h-100"
@@ -44,7 +44,9 @@ export default function About() {
         <div className="first-line rounded-lg">
           <p>WHY ChOOSE PAYCOIN</p>
         </div>
-        <p className="second-line">Where Innovation Meets You</p>
+        <p className="second-line">
+          Where Innovation <br /> Meets You
+        </p>
         <div className="third-line">
           <p>At PayCoin, we pride ourselves on offering a user-friendly</p>
           <p>

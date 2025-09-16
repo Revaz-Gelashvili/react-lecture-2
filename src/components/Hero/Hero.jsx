@@ -20,7 +20,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="hero h-[50rem]">
+    <div className="hero h-[43rem] md:h-[50rem]">
       <div className="content flex items-center justify-center">
         <div className="left-box" data-aos="fade-right">
           <div className="first-line rounded-lg">

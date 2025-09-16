@@ -127,6 +127,14 @@
   }
 
   @media (max-width: 1024px) {
+    .left-side {
+      padding: 2rem 0rem 2rem 0rem;
+    }
+
+    .author-section {
+      margin-top: 2rem;
+    }
+
     flex-direction: column;
 
     & .sides {
