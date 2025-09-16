@@ -37,17 +37,17 @@ export default function Comments() {
             <p>TESTIMONIALS</p>
           </div>
         </div>
-        <div className="carousel-wrapper relative overflow-hidden flex-1 rounded-lg bg-gray-100">
+        <div className="carousel-wrapper relative overflow-hidden flex-1 rounded-2xl bg-gray-100">
           <div
-            className="carousel-slides flex transition-transform duration-500 ease-in-out h-full"
+            className="carousel-slides flex transition-transform duration-500 rounded-2xl ease-in-out h-full"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {testimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="w-full flex-shrink-0 p-6 flex flex-col justify-center h-full"
+                className="w-full flex-shrink-0 p-6 flex flex-col  justify-center h-full"
               >
-                <div className="testimonial-card bg-white rounded-lg shadow-lg p-6 h-full flex flex-col justify-between">
+                <div className="testimonial-card bg-white rounded-2xl shadow-lg p-6 h-full flex flex-col justify-between">
                   <div className="quote-section">
                     <div className="quote-badge  rounded-full w-12 h-12 flex items-center justify-center">
                       {testimonials.findIndex((t) => t.id === testimonial.id) +
