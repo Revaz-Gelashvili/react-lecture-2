@@ -6,6 +6,7 @@ import Profile from "../../assets/profile-pic.svg";
 import Menu from "../../assets/menu.svg";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 export default function Header({ toggleSideBar }) {
   useEffect(() => {
@@ -44,18 +45,18 @@ export default function Header({ toggleSideBar }) {
         </div>
         <div className="hidden md:block">
           <ul className="flex gap-4">
-            <a href="#">
-              <li>Exchange</li>
-            </a>
+            <Link to="/">
+              <li className="work">Home</li>
+            </Link>
             <a href="#">
               <li>Rates</li>
             </a>
             <a href="#">
-              <li>Charts</li>
-            </a>
-            <a href="#">
               <li>News</li>
             </a>
+            <Link to="/register">
+              <li className="work">Register</li>
+            </Link>
           </ul>
         </div>
         <div className="block md:hidden">
@@ -71,11 +72,26 @@ export default function Header({ toggleSideBar }) {
           alt="Sun"
           className="hidden sm:block w-10 h-10 cursor-pointer"
         />
-        <img
-          src={Profile}
-          alt="Sun"
-          className="w-10 h-10 cursor-pointer hidden md:block"
-        />
+        <div
+          className="icon-wrapper cursor-pointer w-16 h-16 flex items-center justify-center"
+          style={{
+            background: `linear-gradient(135deg, rgb(90,101,245), rgb(181,225,255))`,
+          }}
+        >
+          <svg
+            className="icon w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+            />
+          </svg>
+        </div>
       </div>
     </div>
   );
