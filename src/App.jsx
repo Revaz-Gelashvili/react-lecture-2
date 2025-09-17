@@ -1,4 +1,6 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { LoadingOutlined } from "@ant-design/icons";
+import { Flex, Spin } from "antd";
 import "./styles/_App.scss";
 import "./styles/main.scss";
 import Header from "./components/Header/Header";
@@ -13,6 +15,22 @@ import "./styles/tailwind.css";
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className=" flex transition-all ease-linear items-center justify-center h-screen bg-white">
+        <Flex align="center" gap="middle" className="flex-col text-center">
+          <Spin indicator={<LoadingOutlined style={{ fontSize: 70 }} spin />} />
+        </Flex>
+      </div>
+    );
+  }
 
   const toggleSideBar = () => {
     setIsOpen(!isOpen);
