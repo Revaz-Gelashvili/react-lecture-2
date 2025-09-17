@@ -95,7 +95,7 @@ export default function Comments() {
         data-aos="fade-right"
       >
         <div className="world-map rounded-xl absolute inset-0 bg-cover bg-center"></div>
-        <div className="map-overlay absolute inset-0 bg-gradient-to-b from-transparent to-white/50"></div>
+        <div className="map-overlay absolute "></div>
         {testimonials.map((testimonial, index) => (
           <div
             key={testimonial.id}

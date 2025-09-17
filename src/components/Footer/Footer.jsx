@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <div className="footer bg-white rounded-4xl h-16 flex items-center text-center justify-center bottom-0 left-0">
       <div className="flex items-center text-center justify-between w-sm md:w-150 lg:w-200 xl:w-300">
-        <div className="content2">
+        <div className="content">
           <h3>RateNest</h3>
         </div>
         <div className="about  hidden sm:block">
