@@ -33,9 +33,12 @@ export default function Hero() {
             <p>At PayCoin, we're committed to providing you with at</p>
             <p>a cutting-edge exchange experience that goes beyond.</p>
           </div>
-          <div className="email flex relative items-center w-sm md:w-lg">
+          <div className="email flex relative items-center w-sm md:w-md">
             <Input className="h-15 w-full" placeholder="Email Adress" />
-            <Button className="button absolute -translate-x-28" type="primary">
+            <Button
+              className="button !absolute top-[50%] -translate-y-[50%] right-2"
+              type="primary"
+            >
               Get Started
             </Button>
           </div>

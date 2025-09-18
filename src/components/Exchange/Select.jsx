@@ -117,7 +117,6 @@ const currencies = [
   { value: "MZN", label: "MZN - Mozambican metical" },
   { value: "NAD", label: "NAD - Namibian dollar" },
   { value: "NGN", label: "NGN - Nigerian naira" },
-  { value: "NGN", label: "NGN - Nigerian naira" },
   { value: "NIO", label: "NIO - Nicaraguan córdoba" },
   { value: "NOK", label: "NOK - Norwegian krone" },
   { value: "NPR", label: "NPR - Nepalese rupee" },
