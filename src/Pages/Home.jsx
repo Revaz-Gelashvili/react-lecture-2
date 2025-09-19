@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <div className="w-full flex justify-center items-center flex-col">
-        <div className="w-sm md:w-150 lg:w-200 xl:w-300">
+        <div className="w-sm md:w-150 lg:w-200 xl:w-300 dark:bg-amber-500">
           <Hero />
         </div>
 

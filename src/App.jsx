@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { LoadingOutlined } from "@ant-design/icons";
-import { Flex, Spin } from "antd";
+import { Checkbox, Flex, Spin } from "antd";
 import Home from "./Pages/Home";
 import Register from "./Pages/Register";
 import Header from "./components/Header/Header";
@@ -13,6 +13,10 @@ import "./styles/tailwind.css";
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  const toggleChange = (event) => {
+    setDarkMode(event.target.checked);
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1500);
@@ -34,14 +38,15 @@ export default function App() {
   };
 
   return (
-    <>
+    <div className={darkMode ? "dark" : ""}>
       <Header toggleSideBar={toggleSideBar} />
       <Menu isOpen={isOpen} toggleSideBar={toggleSideBar} />
+      {/* <input type="checkbox" checked={darkMode} onChange={toggleChange} /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<div>Page not found</div>} />
       </Routes>
-    </>
+    </div>
   );
 }
